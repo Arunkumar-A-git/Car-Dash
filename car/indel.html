@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Racing Game</title>
+  <style>
+    /* CSS goes here */
+    body {
+  background: #222;
+  font-family: "Press Start 2P", monospace;
+  height: 98vh;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* UI */
+.topUI {
+  position: absolute;
+  transform: translate(-50%, 25px);
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  letter-spacing: 2px;
+  font-size: 17px;
+}
+
+#time {
+  left: 13%;
+  color: #f4f430;
+}
+#time::before {
+  content: "TIME";
+  color: #f57214;
+}
+
+#score {
+  left: 45%;
+}
+#score::before {
+  content: "SCORE";
+  color: #a61a9d;
+}
+
+#lap {
+  left: 88%;
+}
+#lap::before {
+  content: "LAP";
+  color: #0082df;
+}
+
+#tacho {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  font-size: 23px;
+}
+#tacho::after {
+  content: "Km/h";
+  color: #fab453;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+/* Road and Game Background */
+#game {
+  position: relative;
+  margin: 0 auto;
+  background: #222;
+  user-select: none;
+}
+
+#road, #cloud, #hero {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#hero {
+  background-repeat: no-repeat;
+  z-index: 2000;
+  transform: scale(1.4);
+}
+
+#cloud {
+  background-size: auto 100%;
+  height: 57%;
+}
+
+/* Home screen */
+#home {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+#highscore {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  bottom: 0;
+  column-count: 3;
+  column-fill: auto;
+  color: #9e95a8;
+}
+
+h1 {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
+  background: linear-gradient(#25d8b1, #e2bbf0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+#text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  color: #d9bbf3;
+  text-shadow: 0 2px black;
+}
+
+.blink {
+  animation: blinker 2s steps(4, end) infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Controls */
+#controls {
+  color: #868686;
+  font-size: 13px;
+  line-height: 13px;
+  margin: 10px;
+  text-align: center;
+}
+#controls > span {
+  margin-left: 20px;
+}
+#controls > span > span {
+  border: 2px solid #868686;
+  border-radius: 5px;
+  padding: 7px;
+  margin-right: 10px;
+  display: inline-block;
+}
+#controls > span:last-child > span {
+  transform: rotate(90deg);
+}
+
+  </style>
+</head>
+<body translate="no">
+  <div id="game">
+    <div id="road">
+      <div id="cloud"></div>
+      <div id="hero"></div>
+    </div>
+
+    <div id="hud">
+      <span id="time" class="topUI">0</span>
+      <span id="score" class="topUI">0</span>
+      <span id="lap" class="topUI">0'00"000</span>
+      <span id="tacho">0</span>
+    </div>
+
+    <div id="home">
+      <h1>Dash</h1>
+      <p id="text"></p>
+      <div id="highscore"></div>
+    </div>
+  </div>
+
+  <div id="controls">
+    <span><span>C</span>insert coin</span>
+    <span><span>M</span>mute</span>
+    <span><span>&lt;</span><span>&gt;</span>move</span>
+    <span><span>&lt;</span><span>&gt;</span>accelerate</span>
+  </div>
+  
+  <script src="javascript/1.js"></script>
+</body>
+</html>
