@@ -1,3 +1,3 @@
-play online https://kodemeister-yt.github.io/Dash.github.io/
+play online 
 
 credits: http://www.extentofthejam.com/pseudo/
